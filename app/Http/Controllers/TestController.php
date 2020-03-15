@@ -26,9 +26,33 @@ class TestController extends Controller
 
     public function mysql1()
     {
-        $list=DB::table('nav')->first();
-        var_dump($list);
+//        $list=DB::table('nav')->first();
+//        var_dump($list);
 
+        $data=[
+            'navname'=>'中餐厅',
+        ];
+        $res=DB::table('nav')->insert($data);
+        echo '<hr>';
+        var_dump($res);
+    }
+
+    public function mysql2()
+    {
+        $res=DB::table('nav')->where(['navid'=>7])->get()->toArray();
+        print_r($res);
+    }
+
+    public function mysql3()
+    {
+        $users = DB::connection('shop1')->table('nav')->where(['navid'=>6])->get()->toArray();
+        print_r($users);
+    }
+
+    public function mysql4()
+    {
+        $users = DB::connection('shop2')->table('nav')->where(['navid'=>6])->get()->toArray();
+        print_r($users);
     }
 
 }

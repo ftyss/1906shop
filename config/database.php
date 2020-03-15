@@ -44,6 +44,18 @@ return [
         ],
 
         'mysql' => [
+            'write' => [
+                'host' => [
+                    '192.168.203.141',
+                ],
+            ],
+            'read' => [
+                'host' => [
+                    '192.168.203.142',
+                    //'196.168.1.2',
+                ],
+            ],
+            'sticky'    => true,
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -89,6 +101,48 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
+        ],
+
+        'shop1'=>[
+            'driver' => 'mysql',
+            'url' => env('DATABASE_URL'),
+            //'host' => env('DB_HOST', '192.168.203.1'),
+            'host' => env('DB_HOST', '192.168.203.141'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'ceshi'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', 'root'),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+
+        'shop2'=>[
+            'driver' => 'mysql',
+            'url' => env('DATABASE_URL'),
+            //'host' => env('DB_HOST', '192.168.203.1'),
+            'host' => env('DB_HOST', '192.168.203.141'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'ceshione'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', 'root'),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
         ],
 
     ],

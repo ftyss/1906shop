@@ -21,6 +21,9 @@ Route::prefix('/test')->group(function(){
     Route::get('redis1','TestController@redis1');
     Route::get('redis2','TestController@redis2');
     Route::get('mysql1','TestController@mysql1');
+    Route::get('mysql2','TestController@mysql2');
+    Route::get('mysql3','TestController@mysql3');
+    Route::get('mysql4','TestController@mysql4');
 });
 
 Auth::routes();
